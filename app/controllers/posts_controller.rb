@@ -9,8 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.valid?
-      @post.save
+    if @post.save
       redirect_to @post
     else
       flash[:errors] = @post.errors.full_messages.to_sentence
